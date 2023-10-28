@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
 		'Country',
 		{
 			ID: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.STRING(3),
 				allowNull: false,
 				primaryKey: true,
 			},
@@ -14,8 +14,8 @@ module.exports = (sequelize) => {
 				unique: true,
 				allowNull: false,
 			},
-			Imagen_de_la_bandera: {
-				type: DataTypes.STRING,
+			Bandera: {
+				type: DataTypes.TEXT,
 				allowNull: false,
 			},
 			Continente: {
@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
 			},
 			Capital: {
 				type: DataTypes.STRING,
-				allowNull: false,
+				//allowNull: false,
 			},
 			Subregion: {
 				type: DataTypes.STRING,

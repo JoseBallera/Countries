@@ -11,26 +11,16 @@ const getActivityHandler = async (req, res) => {
 }
 
 const postActivityHandler = async (req, res) => {
-	const {
-	  ID,
-	  Nombre,
-	  Dificultad,
-	  Duracion,
-	  Temporada,
-	  
-	} = req.body;
+	const { ID, Nombre, Dificultad, Duracion, Temporada } = req.body;
 	try {
-	  const newActivity = await createActivity( 
+	  const newActivity = await createActivity({
 		ID,
 		Nombre,
 		Dificultad,
-	  	Duracion,
-	  	Temporada,
-	  
-	  )
-	  return res
-		.status(201)
-		.send(`La actividad ${newActivity.Nombre}  ha sido creado correctamente con el ID ${newActivity.ID}`);
+		Duracion,
+		Temporada
+	  });
+	  return res.status(201).send(`La actividad ${newActivity.Nombre} ha sido creada correctamente con el ID ${newActivity.ID}`);
 	} catch (error) {
 	  return res.status(400).json({ error: error.message });
 	}
