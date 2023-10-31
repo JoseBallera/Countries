@@ -1,9 +1,9 @@
-const { getAllactivities, createActivity   } = require('../controllers/activityControllers')
+const { getAllActivities, createActivity   } = require('../controllers/activityControllers')
 
 const getActivityHandler = async (req, res) => {
 	const { activity } = req.query
 	try {
-		const response =  await getAllactivities(activity)
+		const response =  await getAllActivities(activity)
 		return res.status(201).json(response)
 	} catch (error) {
 		return res.status(400).json({ error: error.message })

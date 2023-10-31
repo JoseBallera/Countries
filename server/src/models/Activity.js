@@ -15,14 +15,29 @@ module.exports = (sequelize) => {
     Dificultad: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        isWithinRange(value) {
+          if (value < 1 || value > 5) {
+            throw new Error('La dificultad debe ser un número del 1 al 5');
+          }
+        },
+      },
     },
+    
     Duracion: {
       type: DataTypes.INTEGER,
     },
     Temporada: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+      validate: {
+        isIn: {
+          args: [['Verano', 'Otoño', 'Invierno', 'Primavera']],
+          msg: "La temporada debe ser Verano, Otoño, Invierno o Primavera"
+        }
+      }
+    },
+    
   },
   {
     timestamps: false,
