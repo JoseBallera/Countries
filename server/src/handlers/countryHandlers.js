@@ -8,7 +8,7 @@ const {
 const getCountryHandler = async (req, res) => {
   
   try {
-    const response =  getAllCountries();
+    const response =  await getAllCountries();
     return res.status(200).json(response);
     //return res.send('estas en la ruta de getVideogames')
   } catch (error) {

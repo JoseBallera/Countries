@@ -9,11 +9,12 @@ const loadCountriesIntoDB = async () => {
     Nombre: country.name.official,
     Bandera: country.flags.svg,
     Continente: country.region,
-    Capital: country.capital[0],
-    Subregion: country.subregion,
+    Capital: country.capital ? country.capital[0] : 'N/A', // Use conditional chaining here
+    Subregion: country.subregion ? country.subregion : 'N/A' ,
     Area: country.area,
-    Poblacion: country.population,
+    Poblacion: country.population
   }));
+  
   await Country.bulkCreate(countries);
 };
 
@@ -26,21 +27,8 @@ const getAllCountries = async () => {
   // Convert model instances to plain JavaScript objects
   countries = countries.map(country => country.get());
 
-  // console.log(countries);
-  console.log(countries.length);
-  if (countries.length === 0) {
-    await loadCountriesIntoDB();
-
-    countries = await Country.findAll({
-      include: Activity,
-      attributes: { exclude: ["createdAt", "updatedAt"] },
-    });
-
-    // Convert model instances to plain JavaScript objects
-    countries = countries.map(country => country.get());
-
-    //console.log(countries);
-  }
+  //console.log(countries);
+  //console.log(countries.length);
   
   return countries;
 };
@@ -49,7 +37,7 @@ const getAllCountries = async () => {
 const getCountryByName = async (name) => {
   
   const country = await Country.findAll({
-    where: { name: { [Op.iLike]: `%${name}%` } },
+    where: { Nombre : { [Op.iLike]: `%${name}%` } },
     include: Activity,
     attributes: { exclude: ["createdAt", "updatedAt"] },
   });
@@ -67,4 +55,4 @@ const getCountryById = async (id) => {
   return country;
 };
 
-module.exports = { getAllCountries, getCountryByName, getCountryById };
+module.exports = { getAllCountries, getCountryByName, getCountryById ,loadCountriesIntoDB};
