@@ -1,39 +1,26 @@
 import { useDispatch } from "react-redux";
-import {  getGames, filterGamesByGenre } from "../../redux/actions";
+import {  getCountries, filterCountriesByContinent } from "../../redux/actions";
 
 const Filter = () => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    const genre = event.target.value;
-    if (genre === "all") {
-      dispatch(getGames());
+    const continent = event.target.value;
+    if (continent === "all") {
+      dispatch(getCountries());
     } else {
-      dispatch(filterGamesByGenre(genre));
+      dispatch(filterCountriesByContinent(continent));
     }
   };
   return (
     <select onChange={handleChange}>
       <option value="all">Todos</option>
-      <option value="Action">Accion</option>
-      <option value="Indie">Indie</option>
-      <option value="Adventure">Aventura</option>
-      <option value="RPG">RPG</option>
-      <option value="Strategy">Estrategia</option>
-      <option value="Shooter">Shooter</option>
-      <option value="Casual">Casual</option>
-      <option value="Simulation">Simulacion</option>
-      <option value="Puzzle">Puzzle</option>
-      <option value="Arcade">Arcade</option>
-      <option value="Platformer">Plataformer</option>
-      <option value="Massively Multiplayer">MMO</option>
-      <option value="Racing">Carrera</option>
-      <option value="Sports">Deportes</option>
-      <option value="Fighting">Lucha</option>
-      <option value="Family">Familia</option>
-      <option value="Board Games">Juegos de mesa</option>
-      <option value="Educational">Educacion</option>
-      <option value="Card">Cartas</option>
+      <option value="Africa">Africa</option>
+      <option value="America">America</option>
+      <option value="Asia">Asia</option>
+      <option value="Europa">Europa</option>
+      <option value="Oceania">Oceania</option>
+      <option value="Antartico">Antartico</option>
     </select>
   );
 };

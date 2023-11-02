@@ -11,7 +11,7 @@ const Nav = () => {
       <div className={style.linksContainer}>
         <div className={style.link}>
           <Link to="/home">Home</Link>
-          <Link to="/form">Crear Pokemon</Link>
+          <Link to="/form">Crear Actividad</Link>
         </div>
         <div>
           <SearchBar />

@@ -1,7 +1,7 @@
 
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { searchGame } from "../../redux/actions";
+import { searchCountries } from "../../redux/actions";
 
 const SearchBar = () => {
   const [name, setName] = useState("");
@@ -11,7 +11,7 @@ const SearchBar = () => {
     setName(value);
   };
   const onSearch = (name) => {
-    dispatch(searchGame(name));
+    dispatch(searchCountries(name));
   };
   return (
     <div>

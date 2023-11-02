@@ -14,8 +14,8 @@ const Cards = ({currentCards}) => {
               key={character.ID}
               id={character.ID}
               nombre={character.Nombre}
-              imagen={character.Imagen}
-              genero={character.Genero}
+              bandera={character.Bandera}
+              continente={character.Continente}
             />
           ))}
         </div>

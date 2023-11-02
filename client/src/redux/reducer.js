@@ -1,38 +1,38 @@
 // reducer.js
 import {
-  GET_GAMES,
-  SEARCH_GAMES,
-  SET_CURRENT_PAGE,
-  FILTER_GAMES_BY_GENRE,
-  SORT_GAMES_BY_NAME_ASC,
-  SORT_GAMES_BY_NAME_DESC,
-  SORT_GAMES_BY_RATING_ASC,
-  SORT_GAMES_BY_RATING_DESC,
+GET_COUNTRIES ,
+SEARCH_COUNTRIES,
+ SET_CURRENT_PAGE ,
+FILTER_COUNTRIES_BY_CONTINENT ,
+SORT_COUNTRIES_BY_NAME_ASC ,
+SORT_COUNTRIES_BY_NAME_DESC ,
+SORT_COUNTRIES_BY_POPULATION_ASC ,
+SORT_COUNTRIES_BY_POPULATION_DESC ,
 } from "./actions";
 
 const initialState = {
-  games: [],
+  countries: [],
   currentPage: 1,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_GAMES:
-      return { ...state, games: action.payload };
-    case FILTER_GAMES_BY_GENRE:
-      return { ...state, games: action.payload };
+    case GET_COUNTRIES:
+      return { ...state, countries: action.payload };
+    case FILTER_COUNTRIES_BY_CONTINENT:
+      return { ...state, countries: action.payload };
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.payload };
-    case SEARCH_GAMES:
-      return { ...state, games: action.payload };
-    case SORT_GAMES_BY_NAME_ASC:
-      return { ...state, games: [...state.games].sort((a, b) => a.Nombre.localeCompare(b.Nombre)) };
-    case SORT_GAMES_BY_NAME_DESC:
-      return { ...state, games: [...state.games].sort((a, b) => b.Nombre.localeCompare(a.Nombre)) };
-    case SORT_GAMES_BY_RATING_ASC:
-      return { ...state, games: [...state.games].sort((a, b) => a.Rating - b.Rating) };
-    case SORT_GAMES_BY_RATING_DESC:
-      return { ...state, games: [...state.games].sort((a, b) => b.Rating - a.Rating) };
+    case SEARCH_COUNTRIES:
+      return { ...state, countries: action.payload };
+    case SORT_COUNTRIES_BY_NAME_ASC:
+      return { ...state, countries: [...state.countries].sort((a, b) => a.Nombre.localeCompare(b.Nombre)) };
+    case SORT_COUNTRIES_BY_NAME_DESC:
+      return { ...state, countries: [...state.countries].sort((a, b) => b.Nombre.localeCompare(a.Nombre)) };
+    case SORT_COUNTRIES_BY_POPULATION_ASC:
+      return { ...state, countries: [...state.countries].sort((a, b) => a.Poblacion - b.Poblacion) };
+    case SORT_COUNTRIES_BY_POPULATION_DESC:
+      return { ...state, countries: [...state.countries].sort((a, b) => b.Poblacion - a.Poblacion) };
     default:
       return state;
   }

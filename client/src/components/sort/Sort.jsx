@@ -1,10 +1,10 @@
 
 import { useDispatch } from 'react-redux';
 import {
-  sortGamesByNameAsc,
-  sortGamesByNameDesc,
-  sortGamesByRatingAsc,
-  sortGamesByRatingDesc,
+  sortCountriesByNameAsc,
+  sortCountriesByNameDesc,
+  sortCountriesByPopulationAsc,
+  sortCountriesByPopulationDesc,
 } from '../../redux/actions';
 
 const SortDropdown = () => {
@@ -13,16 +13,16 @@ const SortDropdown = () => {
   const handleChange = (event) => {
     switch (event.target.value) {
       case 'name-asc':
-        dispatch(sortGamesByNameAsc());
+        dispatch(sortCountriesByNameAsc());
         break;
       case 'name-desc':
-        dispatch(sortGamesByNameDesc());
+        dispatch(sortCountriesByNameDesc());
         break;
-      case 'rating-asc':
-        dispatch(sortGamesByRatingAsc());
+      case 'population-asc':
+        dispatch(sortCountriesByPopulationAsc());
         break;
-      case 'rating-desc':
-        dispatch(sortGamesByRatingDesc());
+      case 'population-desc':
+        dispatch(sortCountriesByPopulationDesc());
         break;
       default:
         break;
@@ -34,8 +34,8 @@ const SortDropdown = () => {
       <option value="">Ordenar por...</option>
       <option value="name-asc">Nombre (ascendente)</option>
       <option value="name-desc">Nombre (descendente)</option>
-      <option value="rating-asc">Calificación (ascendente)</option>
-      <option value="rating-desc">Calificación (descendente)</option>
+      <option value="population-asc">Poblacion (ascendente)</option>
+      <option value="population-desc">Poblacion (descendente)</option>
     </select>
   );
 };
