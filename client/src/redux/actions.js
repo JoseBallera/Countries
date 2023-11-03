@@ -22,15 +22,15 @@ export const getCountries = () => {
   };
 };
 
-export const filterCountriesByContinent = (continent) => {
-  return (dispatch, getState) => {
-    const countries = getState().countries;
-    const filteredCountries = countries.filter((country) =>
-      country.Continente.some((g) => g === continent)
-    );
-    dispatch({ type: FILTER_COUNTRIES_BY_CONTINENT, payload: filteredCountries });
-  };
-};
+// export const filterCountriesByContinent = (continent) => {
+//   return (dispatch, getState) => {
+//     const countries = getState().countries;
+//     const filteredCountries = countries.filter((country) =>
+//       country.Continente === continent
+//     );
+//     dispatch({ type: FILTER_COUNTRIES_BY_CONTINENT, payload: filteredCountries });
+//   };
+// };
 
 
 export const searchCountries = (name) => {
@@ -43,6 +43,21 @@ export const searchCountries = (name) => {
     } else {
       dispatch({ type: SEARCH_COUNTRIES, payload: response.data });
     }
+  };
+};
+
+export const filterCountriesByContinent = (continent) => {
+  return (dispatch, getState) => {
+    const allCountries = getState().allCountries;
+    let filteredCountries;
+    if (continent === "all") {
+      filteredCountries = allCountries;
+    } else {
+      filteredCountries = allCountries.filter((country) =>
+        country.Continente === continent
+      );
+    }
+    dispatch({ type: FILTER_COUNTRIES_BY_CONTINENT, payload: filteredCountries });
   };
 };
 

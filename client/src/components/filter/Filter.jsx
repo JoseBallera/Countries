@@ -16,11 +16,11 @@ const Filter = () => {
     <select onChange={handleChange}>
       <option value="all">Todos</option>
       <option value="Africa">Africa</option>
-      <option value="America">America</option>
+      <option value="Americas">America</option>
       <option value="Asia">Asia</option>
-      <option value="Europa">Europa</option>
+      <option value="Europe">Europa</option>
       <option value="Oceania">Oceania</option>
-      <option value="Antartico">Antartico</option>
+      <option value="Antarctic">Antartico</option>
     </select>
   );
 };
