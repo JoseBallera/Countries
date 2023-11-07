@@ -11,14 +11,15 @@ const getActivityHandler = async (req, res) => {
 }
 
 const postActivityHandler = async (req, res) => {
-	const { ID, Nombre, Dificultad, Duracion, Temporada } = req.body;
+	const { ID, Nombre, Dificultad, Duracion, Temporada , countries} = req.body;
 	try {
 	  const newActivity = await createActivity({
 		ID,
 		Nombre,
 		Dificultad,
 		Duracion,
-		Temporada
+		Temporada,
+		countries
 	  });
 	  return res.status(201).send(`La actividad ${newActivity.Nombre} ha sido creada correctamente con el ID ${newActivity.ID}`);
 	} catch (error) {

@@ -1,0 +1,13 @@
+/* FormPage.module.css */
+.form {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .button {
+    width: 100px;
+    align-self: center;
+  }
+  

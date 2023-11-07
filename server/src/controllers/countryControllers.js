@@ -6,7 +6,7 @@ const loadCountriesIntoDB = async () => {
   const response = await axios.get("http://localhost:5000/countries");
   const countries = response.data.map(country => ({
     ID: country.cca3,
-    Nombre: country.name.official,
+    Nombre: country.name.common,
     Bandera: country.flags.svg,
     Continente: country.region,
     Capital: country.capital ? country.capital[0] : 'N/A', // Use conditional chaining here

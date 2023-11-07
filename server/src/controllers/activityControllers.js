@@ -26,7 +26,9 @@ const createActivity = async (activityData) => {
 
   // Asociar la actividad con los países
   const targetCountries = await Country.findAll({
-    Nombre: { [Op.in]: countries } 
+    where: {
+      Nombre: { [Op.in]: countries } 
+    }
   });
   await newActivity.addCountry(targetCountries);
 

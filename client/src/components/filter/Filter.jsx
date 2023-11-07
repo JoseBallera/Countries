@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import {  getCountries, filterCountriesByContinent } from "../../redux/actions";
+import { getCountries, filterCountriesByContinent } from "../../redux/actions";
 
 const Filter = () => {
   const dispatch = useDispatch();
