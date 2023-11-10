@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./Nav.module.css";
 import SearchBar from "../searchbar/SearchBar";
-import Filter from "../filter/Filter";
-import Sort from "../sort/Sort";
 
 
 const Nav = () => {
@@ -17,10 +15,7 @@ const Nav = () => {
           <SearchBar />
         </div>
       </div>
-      <div>
-        <Filter />
-      </div>
-      <div><Sort/></div>
+      
     </nav>
   );
 };

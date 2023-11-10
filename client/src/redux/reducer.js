@@ -3,7 +3,9 @@ import {
   GET_COUNTRIES,
   SEARCH_COUNTRIES,
   SET_CURRENT_PAGE,
+  RESET_COUNTRIES,
   FILTER_COUNTRIES_BY_CONTINENT,
+  FILTER_COUNTRIES_BY_ACTIVITY,
   SORT_COUNTRIES_BY_NAME_ASC,
   SORT_COUNTRIES_BY_NAME_DESC,
   SORT_COUNTRIES_BY_POPULATION_ASC,
@@ -24,7 +26,11 @@ const reducer = (state = initialState, action) => {
         allCountries: action.payload,
         countries: action.payload,
       };
+    case RESET_COUNTRIES:
+      return { ...state, countries: state.allCountries };
     case FILTER_COUNTRIES_BY_CONTINENT:
+      return { ...state, countries: action.payload };
+    case FILTER_COUNTRIES_BY_ACTIVITY:
       return { ...state, countries: action.payload };
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.payload };

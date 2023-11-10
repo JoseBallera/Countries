@@ -5,13 +5,17 @@ import {
   sortCountriesByNameDesc,
   sortCountriesByPopulationAsc,
   sortCountriesByPopulationDesc,
+  resetCountries,
 } from '../../redux/actions';
 
 const SortDropdown = () => {
   const dispatch = useDispatch();
-
+  
   const handleChange = (event) => {
     switch (event.target.value) {
+      case 'non-sort':
+        dispatch(resetCountries());
+        break;
       case 'name-asc':
         dispatch(sortCountriesByNameAsc());
         break;
@@ -31,7 +35,7 @@ const SortDropdown = () => {
 
   return (
     <select onChange={handleChange}>
-      <option value="">Ordenar por...</option>
+      <option value="non-sort">Ordenar por...</option>
       <option value="name-asc">Nombre (ascendente)</option>
       <option value="name-desc">Nombre (descendente)</option>
       <option value="population-asc">Poblacion (ascendente)</option>
