@@ -1,3 +1,28 @@
-
+.landing-page {
+    background-image: url(../../assets/mapa_mundial.jpg);
+    background-size: cover;
+    font-family: sans-serif;
+    
 }
 
+.landing-page .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.landing-page button {
+    padding: 20px 40px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #f00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.landing-page button:hover {
+    background-color: #0f0;
+}

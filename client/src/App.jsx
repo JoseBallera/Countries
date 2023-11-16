@@ -5,6 +5,7 @@ import Home from './views/home/home'
 import Detail from './views/detail/Detail'
 import Nav from './components/nav/Nav'
 import Form from './views/form/Form'
+
 function App() {
   const { pathname } = useLocation();
   return (
