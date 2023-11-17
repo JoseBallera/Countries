@@ -8,7 +8,7 @@ const Card = ({id, nombre, bandera, continente}) => {
     <Link to={`/detail/${id}`}>
       <div className={style.container}>
         <h3 key={id}>{id}</h3>
-        <img src={bandera} alt="game" width="180px" height="200px" />
+        <img src={bandera} alt="game" width="120px" height="80px" />
         <h2>{nombre}</h2>
         <h2>{continente}</h2>
       </div>

@@ -1,8 +1,8 @@
-
+import style from "./SearchBar.module.css"
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { searchCountries } from "../../redux/actions";
-
+import search from "../../assets/search.png";
 const SearchBar = () => {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
@@ -14,9 +14,9 @@ const SearchBar = () => {
     dispatch(searchCountries(name));
   };
   return (
-    <div>
-      <input type="search" onChange={handleChange} />
-      <button onClick={() => onSearch(name)}>Buscar</button>
+    <div className={style.container}>
+      <input type="search" onChange={handleChange} placeholder="Type a Country"/>
+      <button onClick={() => onSearch(name)}><img src={search}></img></button>
     </div>
   );
 };

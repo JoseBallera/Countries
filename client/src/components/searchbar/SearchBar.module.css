@@ -1,3 +1,36 @@
-button{
-    background-color: #385170;
+.container{
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255,255,0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    
+}
+
+.container input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    color: #58629b;
+    padding: 10px 20px;
+    font-size: 15px;
+   
+}
+
+::placeholder{
+    color:#58629b ;
+}
+.container button img {
+    width: 25px;
+}
+
+.container button {
+    border: 0 ;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: #58629b;
+    cursor: pointer;
 }
