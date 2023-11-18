@@ -9,8 +9,8 @@ const Form = () => {
   
   const [values, setValues] = useState({
     Nombre: "",
-    Dificultad: "",
-    Duracion: "",
+    Dificultad: 1,
+    Duracion: 1,
     Temporada: "",
     countries: [],
   });
@@ -84,7 +84,7 @@ const Form = () => {
   };
  
   return (
-    <div>
+    <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>
           Nombre:
@@ -109,7 +109,7 @@ const Form = () => {
           />
         </label>
         <label>
-          Duración:
+          Duración (Hrs):
           <input
             type="number"
             min="0"
@@ -126,7 +126,7 @@ const Form = () => {
             onChange={handleChange}
             required
           >
-            <option value="">--Por favor selecciona una temporada--</option>
+            <option value="">--Selecciona una temporada--</option>
             <option value="Verano">Verano</option>
             <option value="Otoño">Otoño</option>
             <option value="Invierno">Invierno</option>
@@ -150,6 +150,7 @@ const Form = () => {
             ))}
           </select>
         </label>
+        
         <button type="submit" className={styles.button}>
           Crear actividad turística
         </button>

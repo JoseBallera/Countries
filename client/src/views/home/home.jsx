@@ -7,7 +7,6 @@ import Sort from "../../components/sort/Sort";
 import ActivitiesFilter from "../../components/filter/ActivitiesFilter";
 import styles from "./home.module.css";
 
-
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -18,6 +17,7 @@ const Home = () => {
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = characters.slice(indexOfFirstCard, indexOfLastCard);
   // console.log(currentCards)
+  const firstPage = () => dispatch(setCurrentPage(1));
   const nextPage = () => dispatch(setCurrentPage(currentPage + 1));
   const prevPage = () => dispatch(setCurrentPage(currentPage - 1));
 
@@ -35,9 +35,27 @@ const Home = () => {
         <ActivitiesFilter />
       </div>
       <div>
-        <Cards currentCards={currentCards} />
+        <button onClick={firstPage} disabled={currentPage === 1}>
+          Primera página
+        </button>
+        <button onClick={prevPage} disabled={currentPage === 1}>
+          Anterior
+        </button>
+        <button
+          onClick={nextPage}
+          disabled={indexOfLastCard >= characters.length}
+        >
+          Siguiente
+        </button>
       </div>
       <div>
+        <Cards currentCards={currentCards} />
+      </div>
+
+      <div>
+        <button onClick={firstPage} disabled={currentPage === 1}>
+          Primera página
+        </button>
         <button onClick={prevPage} disabled={currentPage === 1}>
           Anterior
         </button>

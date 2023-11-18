@@ -1,13 +1,38 @@
-/* FormPage.module.css */
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
 .form {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+
+}
+
+.form label {
+  margin: 10px 0;
+}
+
+.form input,
+.form select,
+.form button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.form button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .form {
+    padding: 20px;
   }
-  
-  .button {
-    width: 100px;
-    align-self: center;
-  }
-  
+}
