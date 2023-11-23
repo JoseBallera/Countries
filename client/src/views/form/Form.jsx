@@ -2,6 +2,7 @@ import styles from "./Form.module.css";
 import { useState} from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import Filter from "../../components/filter/Filter";
 
 
@@ -37,6 +38,9 @@ const Form = () => {
     });
   };
 
+  const navigate = useNavigate();
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -63,7 +67,7 @@ const Form = () => {
         - Países: ${values.countries.join(", ")}
       `;
       alert(successMessage);
-
+      
       setValues({
         Nombre: "",
         Dificultad: "",
@@ -71,6 +75,7 @@ const Form = () => {
         Temporada: "",
         countries: [],
       });
+      navigate('/home');
     } catch (error) {
       // There was an error with the request
       if (error.response && error.response.data) {

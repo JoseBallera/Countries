@@ -1,4 +1,28 @@
+.detail{
+  background-image: url(../../assets/mapa_mundial.jpg);
+  background-size: cover;
+  padding: 170px;
 
+}
+.container{
+  background-color: rgb(255, 251, 244, .7) ;
+  border-radius: 20px;
+  display: flex;
+  /* margin-top: 90px; */
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.titulo{
+  
+  padding-top: 15px;
+}
+.stats{
+  padding: 10px 100px;
+  margin: auto;
+  
+  align-items: center;
+}
 .img {
   width: 500px;
   height: 300px;

@@ -26,33 +26,18 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <div className={styles.home}>
+    <div className={styles.home}>
+      <div className={styles.filters}>
         <Sort />
-      </div>
-      <div>
         <Filter />
         <ActivitiesFilter />
       </div>
-      <div>
-        <button onClick={firstPage} disabled={currentPage === 1}>
-          Primera página
-        </button>
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          Anterior
-        </button>
-        <button
-          onClick={nextPage}
-          disabled={indexOfLastCard >= characters.length}
-        >
-          Siguiente
-        </button>
-      </div>
-      <div>
+
+      <div className={styles.cards}>
         <Cards currentCards={currentCards} />
       </div>
 
-      <div>
+      <div className={styles.botones}>
         <button onClick={firstPage} disabled={currentPage === 1}>
           Primera página
         </button>
@@ -66,7 +51,7 @@ const Home = () => {
           Siguiente
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
