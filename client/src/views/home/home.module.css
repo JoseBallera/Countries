@@ -1,18 +1,46 @@
 .home {
-  margin-top: 90px;
-  background-image: url(../../assets/mapa_mundial.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  background-color: #7ed4f7;
+  display: flex;
+  justify-content: center;
+}
+.container{
+  padding-top: 90px;
 }
 .filters {
   display: flex;
-  width: 70%    ;
-  justify-content: space-between;
+  justify-content: center;
+  justify-content: space-between; 
   padding: 50px 100px 0px 100px;
 }
+.botones{
+  display: flex;
+  justify-content: center;
+}
+.botones button{
+  display: flex;
+  margin: 10px;
+  padding: 12px 12px;
+  color: #fff;
+  background-color: #450964;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  text-decoration: none !important;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 160px;
+}
+.botones button:hover{
+  background-color: #c70275;
+}
 
-@media (max-width: 600px) {
+@media only screen and (max-width: 600px) {
+  /* For mobile phones */
   .home {
     margin-top: 175px;
   }
@@ -21,4 +49,19 @@
     align-items: center;
     padding: 20px;
   }
+}
+
+
+@media only screen and (min-width: 1301px) {
+  /* For full-size screens */
+  .home {
+    
+    background-image: url(../../assets/mapa_mundial.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+  height: 100vh;
+  }
+  
 }

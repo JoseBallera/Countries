@@ -4,8 +4,8 @@
 const Card = ({id, nombre, bandera, continente}) => {
   
   return (
-    <>
-    <Link to={`/detail/${id}`}>
+    
+    <Link to={`/detail/${id}`} style={{ textDecoration: 'none'}}>
       <div className={style.container}>
         <h3 key={id}>{id}</h3>
         <img src={bandera} alt="game" width="120px" height="80px" />
@@ -13,7 +13,7 @@ const Card = ({id, nombre, bandera, continente}) => {
         <h2>{continente}</h2>
       </div>
     </Link>
-  </>
+  
   );
 };
 

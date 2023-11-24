@@ -15,10 +15,8 @@ const Detail = () => {
   }, [id]);
   return (
     <div className={style.detail}>
-      
       <div className={style.container}>
         <div className={style.titulo}>
-          {/* <h2>{character.ID}</h2> */}
           <img
             className={style.img}
             src={character.Bandera}
@@ -31,8 +29,8 @@ const Detail = () => {
           <h2>Continente: {character.Continente}</h2>
           <h2>Capital: {character.Capital}</h2>
           <h2>Subregion: {character.Subregion}</h2>
-          <h2>Area (Km): {character.Area.toLocaleString('de-DE')}</h2>
-          <h2>Poblacion (Hab): {character.Poblacion.toLocaleString('de-DE')}</h2>
+          <h2>Area (Km): {character.Area}</h2>
+          <h2>Poblacion (Hab): {character.Poblacion}</h2>
         </div>
       </div>
     </div>

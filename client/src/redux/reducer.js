@@ -10,6 +10,7 @@ import {
   SORT_COUNTRIES_BY_NAME_DESC,
   SORT_COUNTRIES_BY_POPULATION_ASC,
   SORT_COUNTRIES_BY_POPULATION_DESC,
+  RESET_FILTERS_AND_SORT,
 } from "./actions";
 
 const initialState = {
@@ -28,6 +29,8 @@ const reducer = (state = initialState, action) => {
       };
     case RESET_COUNTRIES:
       return { ...state, countries: state.allCountries };
+      case RESET_FILTERS_AND_SORT:
+        return {...state, countries: state.allCountries , currentPage: 1 }
     case FILTER_COUNTRIES_BY_CONTINENT:
       return { ...state, countries: action.payload };
     case FILTER_COUNTRIES_BY_ACTIVITY:

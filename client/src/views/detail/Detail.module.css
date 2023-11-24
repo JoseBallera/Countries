@@ -1,29 +1,51 @@
 .detail{
   background-image: url(../../assets/mapa_mundial.jpg);
   background-size: cover;
-  padding: 170px;
-
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 .container{
   background-color: rgb(255, 251, 244, .7) ;
   border-radius: 20px;
   display: flex;
-  /* margin-top: 90px; */
-  padding: 10px;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .titulo{
-  
   padding-top: 15px;
 }
 .stats{
   padding: 10px 100px;
   margin: auto;
-  
   align-items: center;
 }
 .img {
+  margin: 50px 0 0 50px;
   width: 500px;
   height: 300px;
 } 
+
+/* Cuando la pantalla tiene 600px o menos de ancho */
+@media (max-width: 600px) {
+  .container{
+    flex-direction: column;
+   
+  }
+  .img {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+/* Cuando la pantalla tiene entre 600px y 900px de ancho */
+@media (min-width: 601px) and (max-width: 900px) {
+  .img {
+    width: 400px;
+    height: 250px;
+  }
+}

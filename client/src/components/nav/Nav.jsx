@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import style from "./Nav.module.css";
 import SearchBar from "../searchbar/SearchBar";
-import { useDispatch } from 'react-redux';
-import {resetCountries} from '../../redux/actions';
+import { useDispatch } from "react-redux";
+import { resetFiltersAndSort } from "../../redux/actions";
 const Nav = () => {
   const dispatch = useDispatch();
 
@@ -11,13 +11,17 @@ const Nav = () => {
   };
   return (
     <nav className={style.navContainer}>
-      <div className={style.link}>
-        <Link to="/home" className={style.linkItem} onClick={handleHomeClick}>
-          Home
-        </Link>
-        <Link to="/form" className={style.linkItem}>
-          Crear Actividad
-        </Link>
+      <div className={style.linkContainer}>
+        <div className={style.link}>
+          <Link to="/home" onClick={handleHomeClick} style={{ textDecoration: 'none'}}>
+            Home
+          </Link>
+        </div>
+        <div className={style.link}>
+          <Link to="/form" style={{ textDecoration: 'none'}}>
+            Crear Actividad
+          </Link>
+        </div>
       </div>
       <div className={style.searchBar}>
         <SearchBar />

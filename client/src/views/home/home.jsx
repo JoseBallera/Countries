@@ -27,29 +27,26 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <div className={styles.filters}>
-        <Sort />
-        <Filter />
-        <ActivitiesFilter />
-      </div>
-
-      <div className={styles.cards}>
-        <Cards currentCards={currentCards} />
-      </div>
-
-      <div className={styles.botones}>
-        <button onClick={firstPage} disabled={currentPage === 1}>
-          Primera página
-        </button>
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          Anterior
-        </button>
-        <button
-          onClick={nextPage}
-          disabled={indexOfLastCard >= characters.length}
-        >
-          Siguiente
-        </button>
+      <div className={styles.container}>
+        <div className={styles.filters}>
+          <Sort />
+          <Filter />
+          <ActivitiesFilter />
+        </div>
+        <div className={styles.cards}>
+          <Cards currentCards={currentCards} />
+        </div>
+        <div className={styles.botones}>
+          <button onClick={firstPage} disabled={currentPage === 1}>
+            Primera página
+          </button>
+          <button onClick={prevPage} disabled={currentPage === 1}>
+            Anterior
+          </button>
+          <button onClick={nextPage} disabled={indexOfLastCard >= characters.length}>
+            Siguiente
+          </button>
+        </div>
       </div>
     </div>
   );
