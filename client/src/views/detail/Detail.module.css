@@ -7,9 +7,10 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  color: #450964;
 }
 .container{
-  background-color: rgb(255, 251, 244, .7) ;
+  background-color: rgb(255, 251, 244, .8) ;
   border-radius: 20px;
   display: flex;
   flex-direction: row;

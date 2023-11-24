@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
-import { resetCountries, filterCountriesByContinent } from "../../redux/actions";
-
+import {
+  resetCountries,
+  filterCountriesByContinent,
+} from "../../redux/actions";
+import style from "./Filter&Sort.module.css";
 const Filter = () => {
   const dispatch = useDispatch();
   const handleChange = (event) => {
@@ -14,7 +17,11 @@ const Filter = () => {
 
   return (
     <div>
-      <select onChange={handleChange}>
+      <select
+        className={style.filter}
+        defaultValue="all"
+        onChange={handleChange}
+      >
         <option value="all">Todos los continentes</option>
         <option value="Africa">Africa</option>
         <option value="Americas">America</option>

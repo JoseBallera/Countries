@@ -13,12 +13,12 @@ const Nav = () => {
     <nav className={style.navContainer}>
       <div className={style.linkContainer}>
         <div className={style.link}>
-          <Link to="/home" onClick={handleHomeClick} style={{ textDecoration: 'none'}}>
+          <Link to="/home" onClick={handleHomeClick} style={{ textDecoration: 'none', color: '#f8efed'}}>
             Home
           </Link>
         </div>
         <div className={style.link}>
-          <Link to="/form" style={{ textDecoration: 'none'}}>
+          <Link to="/form" style={{ textDecoration: 'none', color: '#f8efed'}}>
             Crear Actividad
           </Link>
         </div>

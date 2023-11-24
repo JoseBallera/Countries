@@ -15,7 +15,7 @@ const SearchBar = () => {
   };
   return (
     <div className={style.container}>
-      <input type="search" onChange={handleChange} placeholder="Type a Country"/>
+      <input type="search" onChange={handleChange} placeholder="Buscar Paises"/>
       <button onClick={() => onSearch(name)}><img src={search}></img></button>
     </div>
   );

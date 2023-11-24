@@ -13,14 +13,14 @@
     flex: 1;
     border: 0;
     outline: none;
-    color: #58629b;
+    color: #f8efed      ;
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 17px;
    
 }
 
 ::placeholder{
-    color:#58629b ;
+    color: #f8efed;
 }
 .container button img {
     width: 25px;
@@ -31,6 +31,6 @@
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    background: #58629b;
+    background: #450964;
     cursor: pointer;
 }

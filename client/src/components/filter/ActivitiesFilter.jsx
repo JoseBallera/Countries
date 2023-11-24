@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { resetCountries, filterCountriesByActivity } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import style from "./Filter&Sort.module.css";
 const ActivitiesFilter = () => {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
@@ -29,7 +29,7 @@ const ActivitiesFilter = () => {
   };
   return (
     <div>
-    <select onChange={handleActivityChange}>
+    <select className={style.filter} onChange={handleActivityChange}>
         <option value="all">Todas las actividades</option>
         {activities.map(activity => (
           <option key={activity} value={activity}>{activity}</option>

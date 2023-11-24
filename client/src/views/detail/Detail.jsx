@@ -29,8 +29,10 @@ const Detail = () => {
           <h2>Continente: {character.Continente}</h2>
           <h2>Capital: {character.Capital}</h2>
           <h2>Subregion: {character.Subregion}</h2>
-          <h2>Area (Km): {character.Area}</h2>
-          <h2>Poblacion (Hab): {character.Poblacion}</h2>
+          {/* <h2>Area (Km): {character.Area}</h2>
+          <h2>Poblacion (Hab): {character.Poblacion}</h2> */}
+          <h2>Area (Km2): {Number(character.Area).toLocaleString('de-DE')}</h2>
+          <h2>Poblacion (Hab): {Number(character.Poblacion).toLocaleString('de-DE')}</h2>
         </div>
       </div>
     </div>

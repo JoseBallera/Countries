@@ -7,7 +7,7 @@ import {
   sortCountriesByPopulationDesc,
   resetCountries,
 } from '../../redux/actions';
-
+import style from "../filter/Filter&Sort.module.css";
 const SortDropdown = () => {
   const dispatch = useDispatch();
   
@@ -34,7 +34,7 @@ const SortDropdown = () => {
   };
 
   return (
-    <select onChange={handleChange}>
+    <select className={style.filter} onChange={handleChange}>
       <option value="non-sort">Ordenar por...</option>
       <option value="name-asc">Nombre (ascendente)</option>
       <option value="name-desc">Nombre (descendente)</option>

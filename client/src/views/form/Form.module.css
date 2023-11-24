@@ -1,4 +1,5 @@
-.container{
+
+.formulario{
   background-image: url(../../assets/mapa_mundial.jpg);
   background-size: cover;
   background-position: center;
@@ -7,34 +8,46 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  color:#450964
 }
-.form {
-  background-color: rgb(255, 251, 244, .7) ;
+.container {
+  background-color: rgb(223, 226, 246, 0.9);
   border-radius: 20px;
-  padding: 10px;
+  margin-top: 70px;
+  padding: 20px 20px ;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px;
-
+  max-width: 60%; 
 }
-
+.form{
+  width: 80%;
+  margin-top: 10px;
+}
+.form div,
 .form label {
-  margin: 10px 0;
+  width: 100%;
 }
+
 
 .form input,
 .form select,
 .form button {
   width: 100%;
+  margin-top: 5px;
   padding: 10px;
   box-sizing: border-box;
+  border-radius: 5px;
+  border-style: hidden;
+  background-color: #fffbf4;
+  
 }
 
 .form button {
-  background-color: #4CAF50;
+  background-color: #450964;
   color: white;
   cursor: pointer;
+  font-size: 20px;
 }
 
 /* Estilos para pantallas pequeñas */
