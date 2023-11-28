@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import {
   resetCountries,
   filterCountriesByContinent,
+  setCurrentPage,
 } from "../../redux/actions";
 import style from "./Filter&Sort.module.css";
 const Filter = () => {
@@ -12,6 +13,7 @@ const Filter = () => {
       dispatch(resetCountries());
     } else {
       dispatch(filterCountriesByContinent(continent));
+      dispatch(setCurrentPage(1))
     }
   };
 

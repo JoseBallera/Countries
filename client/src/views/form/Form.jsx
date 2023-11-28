@@ -4,6 +4,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Filter from "../../components/filter/Filter";
+import { validateNombre, validateTemporada, validateDuracion, validatePaises } from "./Validations"
+
 
 const Form = () => {
   const [values, setValues] = useState({
@@ -13,47 +15,62 @@ const Form = () => {
     Temporada: "",
     countries: [],
   });
-  //const [successMessage, setSuccessMessage] = useState(null);
 
   const countryNames = useSelector((state) =>
     state.countries.map((country) => country.Nombre)
   );
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
+    const { name, value } = event.target;
+  
+    setValues({...values, [name]: value, });
+  
+    let newErrors = {
+      ...errors,
+      Nombre: validateNombre(values.Nombre),
+      Temporada: validateTemporada(values.Temporada),
+      Duracion: validateDuracion(values.Duracion),
+      countries: validatePaises(values.countries),
+    };
+  
+    setErrors(newErrors);
   };
-
+  
   const handleSelectChange = (event) => {
-    setValues({
-      ...values,
-      countries: Array.from(
-        event.target.selectedOptions,
-        (option) => option.value
-      ),
-    });
+    const selectedCountries = Array.from(
+      event.target.selectedOptions,
+      (option) => option.value
+    );
+  
+    setValues({...values, countries: selectedCountries,});
+  
+    let newErrors = {
+      ...errors,
+      Nombre: validateNombre(values.Nombre),
+      Temporada: validateTemporada(values.Temporada),
+      Duracion: validateDuracion(values.Duracion),
+      countries: validatePaises(selectedCountries),
+    };
+  
+    setErrors(newErrors);
   };
+  
+ 
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Validations
-    if (!values.Nombre || /[^a-zA-Z ]/.test(values.Nombre)) {
-      alert(
-        "El nombre de la actividad es obligatorio y no puede contener números."
-      );
+    // Verificar si hay errores antes de enviar el formulario
+    if (Object.values(errors).some((error) => error !== '')) {
+      alert("Por favor, corrige los errores antes de enviar el formulario.");
       return;
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:3001/activity",
-        values
-      );
+     await axios.post("http://localhost:3001/activity",values);
 
       // Crear un mensaje de éxito con las características de la nueva actividad
       const successMessage = `Se ha creado una nueva actividad turística con las siguientes características:
@@ -88,7 +105,7 @@ const Form = () => {
   return (
     <div className={styles.formulario}>
       <div className={styles.container}>
-      <h1>Crear Actividad Turística</h1>
+        <h1>Crear Actividad Turística</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
             Nombre:
@@ -99,6 +116,7 @@ const Form = () => {
               onChange={handleChange}
               required
             />
+            {errors.Nombre && <p className={styles.error}>{errors.Nombre}</p>}
           </label>
           <label>
             Dificultad:
@@ -116,11 +134,15 @@ const Form = () => {
             Duración (Hrs):
             <input
               type="number"
-              min="0"
+              min="1"
+              max="24"
               name="Duracion"
               value={values.Duracion}
               onChange={handleChange}
             />
+            {errors.Duracion && (
+              <p className={styles.error}>{errors.Duracion}</p>
+            )}
           </label>
           <label>
             Temporada:
@@ -136,6 +158,9 @@ const Form = () => {
               <option value="Invierno">Invierno</option>
               <option value="Primavera">Primavera</option>
             </select>
+            {errors.Temporada && (
+              <p className={styles.error}>{errors.Temporada}</p>
+            )}
           </label>
           Continente:
           <Filter />
@@ -153,8 +178,15 @@ const Form = () => {
                 </option>
               ))}
             </select>
+            {errors.countries && (
+              <p className={styles.error}>{errors.countries}</p>
+            )}
           </label>
-          <button type="submit" className={styles.button}>
+          <button
+            type="submit"
+            className={styles.button}
+            disabled={Object.values(errors).some((error) => error !== '')}
+          >
             Enviar
           </button>
         </form>
