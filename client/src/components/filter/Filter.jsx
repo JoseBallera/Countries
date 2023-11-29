@@ -5,6 +5,7 @@ import {
   setCurrentPage,
 } from "../../redux/actions";
 import style from "./Filter&Sort.module.css";
+
 const Filter = () => {
   const dispatch = useDispatch();
   const handleChange = (event) => {

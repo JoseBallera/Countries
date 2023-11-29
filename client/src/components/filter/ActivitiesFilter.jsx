@@ -1,8 +1,13 @@
 import { useDispatch } from "react-redux";
-import { resetCountries, filterCountriesByActivity } from "../../redux/actions";
+import {
+  resetCountries,
+  filterCountriesByActivity,
+  setCurrentPage,
+} from "../../redux/actions";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./Filter&Sort.module.css";
+
 const ActivitiesFilter = () => {
   const dispatch = useDispatch();
   const [activities, setActivities] = useState([]);
@@ -16,29 +21,26 @@ const ActivitiesFilter = () => {
 
     fetchActivities();
   }, []);
-
- 
-
-  const handleActivityChange = (event) => {
+  const handleChange = (event) => {
     const activity = event.target.value;
     if (activity === "all") {
       dispatch(resetCountries());
     } else {
       dispatch(filterCountriesByActivity(activity));
+      dispatch(setCurrentPage(1));
     }
   };
   return (
     <div>
-    <select className={style.filter} onChange={handleActivityChange}>
+      <select className={style.filter} onChange={handleChange}>
         <option value="all">Todas las actividades</option>
-        {activities.map(activity => (
-          <option key={activity} value={activity}>{activity}</option>
+        {activities.map((activity) => (
+          <option key={activity} value={activity}>
+            {activity}
+          </option>
         ))}
       </select>
     </div>
-   
-
-    
   );
 };
 

@@ -28,9 +28,7 @@ const reducer = (state = initialState, action) => {
         countries: action.payload,
       };
     case RESET_COUNTRIES:
-      return { ...state, countries: state.allCountries };
-      case RESET_FILTERS_AND_SORT:
-        return {...state, countries: state.allCountries , currentPage: 1 }
+      return { ...state, countries: state.allCountries , currentPage: 1};
     case FILTER_COUNTRIES_BY_CONTINENT:
       return { ...state, countries: action.payload };
     case FILTER_COUNTRIES_BY_ACTIVITY:

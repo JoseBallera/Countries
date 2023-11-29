@@ -13,10 +13,6 @@ export const SORT_COUNTRIES_BY_POPULATION_ASC =
 export const SORT_COUNTRIES_BY_POPULATION_DESC =
   "SORT_COUNTRIES_BY_POPULATION_DESC";
 export const RESET_FILTERS_AND_SORT = "RESET_FILTERS_AND_SORT";
-
-export const resetFiltersAndSort = () => ({
-  type: RESET_FILTERS_AND_SORT,
-});
 export const sortCountriesByNameAsc = () => ({
   type: SORT_COUNTRIES_BY_NAME_ASC,
 });

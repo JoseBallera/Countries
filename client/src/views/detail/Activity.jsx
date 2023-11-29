@@ -1,17 +1,14 @@
-import style from "./Detail.module.css"; 
-
-
+import style from "./Detail.module.css";
 
 const Activity = ({ activity }) => {
   return (
     <div className={style.activity}>
       <h3>{activity.Nombre}</h3>
-      <p>Dificultad (1-5): {activity.Dificultad}</p>
-      <p>Duración (hrs): {activity.Duracion}</p>
-      <p>Temporada: {activity.Temporada}</p>
+      <h4>Dificultad (1-5): {activity.Dificultad}</h4>
+      <h4>Duración (hrs): {activity.Duracion}</h4>
+      <h4>Temporada: {activity.Temporada}</h4>
     </div>
   );
 };
 
 export default Activity;
-

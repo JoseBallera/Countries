@@ -1,11 +1,9 @@
- import style from "./Card.module.css";
- import { Link } from "react-router-dom";
+import style from "./Card.module.css";
+import { Link } from "react-router-dom";
 
-const Card = ({id, nombre, bandera, continente}) => {
-  
+const Card = ({ id, nombre, bandera, continente }) => {
   return (
-    
-    <Link to={`/detail/${id}`} style={{ textDecoration: 'none'}}>
+    <Link to={`/detail/${id}`} style={{ textDecoration: "none" }}>
       <div className={style.container}>
         <h3 key={id}>{id}</h3>
         <img src={bandera} alt="game" width="120px" height="80px" />
@@ -13,7 +11,6 @@ const Card = ({id, nombre, bandera, continente}) => {
         <h2>{continente}</h2>
       </div>
     </Link>
-  
   );
 };
 

@@ -2,11 +2,8 @@
 import Card from "../card/Card";
 import style from "./Cards.module.css";
 
-const Cards = ({currentCards}) => {
- 
-  
-  return (
-    <>
+const Cards = ({ currentCards }) => {
+    return (
       <div className={style.container}>
         <div className={style.cards}>
           {currentCards.map((character) => (
@@ -20,9 +17,6 @@ const Cards = ({currentCards}) => {
           ))}
         </div>
       </div>
-    </>
-  );
-};
-
+    );
+  }
 export default Cards;
-

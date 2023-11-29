@@ -55,9 +55,6 @@ const Form = () => {
   
     setErrors(newErrors);
   };
-  
- 
-
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {

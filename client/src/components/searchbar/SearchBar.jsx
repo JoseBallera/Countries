@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { searchCountries, setCurrentPage } from "../../redux/actions";
 import search from "../../assets/search.png";
+
 const SearchBar = () => {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
